@@ -36,7 +36,7 @@ public class UserRepository : IUserRepository
         return user;
     }
 
-    public List<User> GetAllUsers()
+    public List<User> GetUsers()
     {
         return _applicationContext.Users.ToList();
     }

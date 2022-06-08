@@ -21,7 +21,7 @@ public class UserController : ControllerBase
     [HttpGet]
     public IActionResult Index()
     {
-        var users = _userRepository.GetAllUsers().Select(x => new UserResponseDto(x.Name, x.Email));
+        var users = _userRepository.GetUsers().Select(x => new UserResponseDto(x.Name, x.Email));
         return Ok(users);
     }
     [HttpPost]
@@ -31,7 +31,7 @@ public class UserController : ControllerBase
         UserResponseDto userResponse = new(user.Name, user.Email);
         return Ok(userResponse);
     }
-    [HttpPatch]
+    [HttpPut]
     [Route("{id}")]
     public IActionResult Update(int id, UserUpdateDto userUpdate) {
         User user = _userRepository.UpdateUser(id, userUpdate);
