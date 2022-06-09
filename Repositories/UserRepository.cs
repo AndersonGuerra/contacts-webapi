@@ -55,5 +55,9 @@ public class UserRepository : IUserRepository
         return user;
     }
 
-
+    public User GetUserByEmail(string email)
+    {
+        User user = _applicationContext.Users.Where(x => x.Email == email).First();
+        return user;
+    }
 }

@@ -1,5 +1,6 @@
 using ContactWebAPI.Models;
 using ContactWebAPI.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactWebAPI.Controllers;
@@ -17,6 +18,7 @@ public class PostController : ControllerBase
         _postRepository = postRepository;
     }
 
+    [Authorize]
     [HttpGet]
     public IActionResult Index()
     {
