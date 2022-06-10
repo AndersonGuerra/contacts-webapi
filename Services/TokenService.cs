@@ -29,6 +29,7 @@ public class TokenService : ITokenService
         var mySecret = Encoding.UTF8.GetBytes(key);
         var myKey = new SymmetricSecurityKey(mySecret);
         var tokenHandler = new JwtSecurityTokenHandler();
+        Console.WriteLine("hummmmmmmmmmmmmmmmmmmmm");
         try
         {
             tokenHandler.ValidateToken(token, new TokenValidationParameters

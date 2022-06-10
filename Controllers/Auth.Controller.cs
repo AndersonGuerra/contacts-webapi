@@ -34,6 +34,9 @@ public class AuthController : ControllerBase
         }
         UserResponseDto userResponse = new(user.Name, user.Email);
         var token = _tokenService.BuildToken(_config["Jwt:Key"].ToString(), _config["Jwt:Issuer"].ToString(), userResponse);
-        return Ok(token);
+        return Ok(new
+        {
+            Token = token
+        });
     }
 }
